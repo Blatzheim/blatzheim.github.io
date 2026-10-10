@@ -1,9 +1,9 @@
-# blatzheim.github.io
+# alexander.blatzheim.org
 
 Source of the personal academic homepage of Alexander Blatzheim, PhD student at the
 Chair for Software Engineering and AI, Hasso-Plattner-Institut, Potsdam.
 
-Live site: https://blatzheim.github.io/
+Live site: https://alexander.blatzheim.org/
 
 ## Structure
 
