@@ -63,6 +63,7 @@
     --bloom: #e85a0c;       /* HPI orange: start of the portrait ring */
     --nav-bg: rgba(251, 250, 247, 0.68);
     --glass-edge: rgba(42, 38, 35, 0.08); --glass-hi: rgba(255, 255, 255, 0.7);
+    --pill: #ffffff; --pill-edge: rgba(42, 38, 35, 0.07);  /* profile link pills: a step lighter than the paper */
     --k1-bg: #fde0e3; --k1-fg: #a50a33;
     --k2-bg: #fde4dc; --k2-fg: #a8261a;
     --k3-bg: #fbe2e6; --k3-fg: #9c1838;
@@ -88,6 +89,7 @@
       --bloom: #ffa04f;
       --nav-bg: rgba(25, 23, 22, 0.66);
       --glass-edge: rgba(255, 255, 255, 0.07); --glass-hi: rgba(255, 255, 255, 0.06);
+      --pill: #242120; --pill-edge: rgba(255, 255, 255, 0.06);
       --k1-bg: #43191f; --k1-fg: #ff8f8a;
       --k2-bg: #45201a; --k2-fg: #ff9a80;
       --k3-bg: #3f1a22; --k3-fg: #ff94a0;
@@ -111,6 +113,7 @@
     --bloom: #ffa04f;
     --nav-bg: rgba(25, 23, 22, 0.66);
       --glass-edge: rgba(255, 255, 255, 0.07); --glass-hi: rgba(255, 255, 255, 0.06);
+      --pill: #242120; --pill-edge: rgba(255, 255, 255, 0.06);
     --k1-bg: #43191f; --k1-fg: #ff8f8a;
     --k2-bg: #45201a; --k2-fg: #ff9a80;
     --k3-bg: #3f1a22; --k3-fg: #ff94a0;
@@ -184,9 +187,12 @@
   .role a, .links a { color: var(--brand); }
   h1 { font: 600 clamp(2.1rem, 5.2vw, 2.85rem)/1.08 var(--serif); letter-spacing: -0.02em; margin: 0 0 0.55rem; }
   .role { font: 400 0.95rem/1.5 var(--sans); color: var(--muted); margin: 0 0 1rem; }
-  .links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; font: 500 0.875rem/1 var(--sans); }
-  .links a { display: inline-flex; align-items: center; gap: 0.4rem; }
-  .links a:hover { text-decoration: underline; }
+  .links { display: flex; flex-wrap: wrap; gap: 0.5rem; font: 500 0.875rem/1 var(--sans); }
+  .links a {
+    display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.8rem; border-radius: 999px;
+    background: var(--pill); border: 1px solid var(--pill-edge); transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .links a:hover { text-decoration: none; border-color: color-mix(in srgb, var(--brand) 30%, transparent); }
   .links svg { width: 0.95em; height: 0.95em; fill: currentColor; flex: none; }
 
   .research { margin-top: 2.5rem; }
@@ -271,6 +277,8 @@
     .rows { grid-template-columns: 1fr; gap: 0; }
     .rows dd { margin-bottom: 0.7rem; }
     .research p { font-size: 1.125rem; }
+    /* Balanced 3 + 2 grid of link pills instead of a single orphaned pill on the second row */
+    .links { display: grid; grid-template-columns: repeat(3, max-content); }
   }
   @media (prefers-reduced-motion: reduce) {
     .topic-icon, .topic-icon *, .marker, .js .topic-body, .js .topic-inner, .nav-links a::after, .nav-name { transition: none; }
