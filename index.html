@@ -63,7 +63,7 @@
     --bloom: #e85a0c;       /* HPI orange: start of the portrait ring */
     --nav-bg: rgba(251, 250, 247, 0.68);
     --glass-edge: rgba(42, 38, 35, 0.08); --glass-hi: rgba(255, 255, 255, 0.7);
-    --pill: #ffffff; --pill-shadow: 0 1px 2px rgba(42, 38, 35, 0.07), 0 2px 6px -2px rgba(42, 38, 35, 0.06);  /* profile link pills */
+    --pill-shadow: 0 1px 3px rgba(42, 38, 35, 0.12);  /* profile link pills */
     --k1-bg: #fde0e3; --k1-fg: #a50a33;
     --k2-bg: #fde4dc; --k2-fg: #a8261a;
     --k3-bg: #fbe2e6; --k3-fg: #9c1838;
@@ -89,7 +89,7 @@
       --bloom: #ffa04f;
       --nav-bg: rgba(25, 23, 22, 0.66);
       --glass-edge: rgba(255, 255, 255, 0.07); --glass-hi: rgba(255, 255, 255, 0.06);
-      --pill: #211e1c; --pill-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 6px -2px rgba(0, 0, 0, 0.3);
+      --pill-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
       --k1-bg: #43191f; --k1-fg: #ff8f8a;
       --k2-bg: #45201a; --k2-fg: #ff9a80;
       --k3-bg: #3f1a22; --k3-fg: #ff94a0;
@@ -113,7 +113,7 @@
     --bloom: #ffa04f;
     --nav-bg: rgba(25, 23, 22, 0.66);
       --glass-edge: rgba(255, 255, 255, 0.07); --glass-hi: rgba(255, 255, 255, 0.06);
-      --pill: #211e1c; --pill-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 2px 6px -2px rgba(0, 0, 0, 0.3);
+      --pill-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     --k1-bg: #43191f; --k1-fg: #ff8f8a;
     --k2-bg: #45201a; --k2-fg: #ff9a80;
     --k3-bg: #3f1a22; --k3-fg: #ff94a0;
@@ -190,9 +190,10 @@
   .links { display: flex; flex-wrap: wrap; gap: 0.5rem; font: 500 0.875rem/1 var(--sans); }
   .links a {
     display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.8rem; border-radius: 999px;
-    background: var(--pill); box-shadow: var(--pill-shadow); transition: transform 0.2s ease;
+    background: var(--paper); box-shadow: var(--pill-shadow); transition: box-shadow 0.1s ease, transform 0.1s ease;
   }
-  .links a:hover { text-decoration: none; transform: translateY(-1px); }
+  .links a:hover { text-decoration: none; }
+  .links a:active { box-shadow: none; transform: translateY(1px); }
   .links svg { width: 0.95em; height: 0.95em; fill: currentColor; flex: none; }
 
   .research { margin-top: 2.5rem; }
